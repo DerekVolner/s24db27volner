@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the CHANGE FOR FOR PART TWO - TEN #{title}
+  button(type="button", class="btn btn-secondary",onclick="double()") I am a button
+  div#double Up the amount
+  script.
+    var value= 0
+    var power= 1
+    function double(){
+      value+=1
+      power*=2
+      strvalue="Two to the power "+value+" is "+power
+      document.getElementById("double").innerText=strvalue
+    }
+  a(href='/rhino') Rhino-Page

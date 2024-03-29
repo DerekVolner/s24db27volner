@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  - var image_names = ["front_view_rhino.jpg","rhino_with_bird.jpg","baby_rhino.jpg","2_dustyrhino_square.jpg","1_horn_square.jpg"]
+  - for(let i=0; i<3; i++){
+    
+    img(src=`/images/`+image_names[Math.floor(Math.random()*5)], alt=`picture of a rhino`, height=`500px`, width=`500px`)
+  - }

@@ -10,11 +10,12 @@ router.get('/', api_controller.api);
 // POST request for creating a rhino. 
 router.post('/rhinoSchema', rhino_controller.rhinoSchema_create_post);
 // DELETE request to delete rhino.
-router.delete('/rhinoSchema/:id', rhino_controller.rhinoSchema_delete);
+router.delete('/rhinoSchema', rhino_controller.rhinoSchema_delete);
 // PUT request to update rhino.
-router.put('/rhinoSchema/:id', rhino_controller.rhinoSchema_update_put);
+router.put('/rhinoSchema', rhino_controller.rhinoSchema_update_put);
 // GET request for one rhino.
-router.get('/rhinoSchema/:id', rhino_controller.rhinoSchema_detail);
+//router.get('/rhinoSchema', rhino_controller.rhinoSchema_detail);
+//commented this out because it was causing issues after trying to fix stuff?
 // GET request for list of all rhino items.
 router.get('/rhinoSchema', rhino_controller.rhinoSchema_list);
 

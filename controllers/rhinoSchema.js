@@ -1,8 +1,17 @@
 var rhino = require('../models/rhinoSchema');
 // List of all rhinos
-exports.rhinoSchema_list = function(req, res) {
- res.send('NOT IMPLEMENTED: rhino list');
-};
+exports.rhinoSchema_list = async function(req, res) {
+    try{
+    theRhinos = await rhino.find();
+    res.send(theRhinos);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+
+}
+
 // for a specific rhino.
 exports.rhinoSchema_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: Rhino detail: ' + req.params.id);

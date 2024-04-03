@@ -26,8 +26,7 @@ async function recreateDB(){
  await rhinoSchema.deleteMany();
  let instance1 = new 
 
-rhinoSchema({rhino_species:"White Rhino", rhino_age:16, 
-endagerment_status: "Near Threatened"});
+rhinoSchema({rhino_species:"White Rhino", rhino_age:16, endangerment_status: "Near Threatened"});
  instance1.save().then(doc=>{
  console.log("First object saved")}
  ).catch(err=>{
@@ -35,8 +34,7 @@ endagerment_status: "Near Threatened"});
  });
 
  let instance2=new 
- rhinoSchema({rhino_species:"Greater One-horned Rhino", rhino_age:6, 
-endagerment_status: "Vulnerable"});
+ rhinoSchema({rhino_species:"Greater One-horned Rhino", rhino_age:6, endangerment_status: "Vulnerable"});
  instance2.save().then(doc=>{
  console.log("Second object saved")}
  ).catch(err=>{
@@ -44,8 +42,7 @@ endagerment_status: "Vulnerable"});
  });
 
  let instance3 = new
- rhinoSchema({rhino_species:"Black Rhino", rhino_age:9, 
-endagerment_status: "Critically Endangered"});
+ rhinoSchema({rhino_species:"Black Rhino", rhino_age:9, endangerment_status: "Critically Endangered"});
  instance3.save().then(doc=>{
  console.log("Third object saved")}
  ).catch(err=>{

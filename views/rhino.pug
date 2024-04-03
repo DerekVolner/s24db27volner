@@ -2,9 +2,9 @@ extends layout
 
 block content
   h1= title
-  -  results=[{"rhino_species": "Black Rhino"},{"rhino_age": 6},{endangerment_status: "Critically Endangered"}]
+  -  let items = results
   div.container-fluid 
     div.row
-      each item in results
+      each item in items
         div.col-sm-2 #{item.rhino_species} #{ item.rhino_age} #{item.endangerment_status}
 

@@ -52,11 +52,32 @@ exports.rhinoSchema_create_post  = async function(req, res) {
 exports.rhinoSchema_delete = function(req, res) {
  res.send('NOT IMPLEMENTED: Rhino delete DELETE ' + req.params.id);
 };
-// Handle Rhino update form on PUT.
+/* Handle Rhino update form on PUT.
 exports.rhinoSchema_update_put = function(req, res) {
  res.send('NOT IMPLEMENTED: Rhino update PUT' + req.params.id);
-};
-
+};  */
+exports.rhinoSchema_update_put = async function(req, res) {
+    console.log(`update on id ${req.params.id} with body 
+   ${JSON.stringify(req.body)}`)
+    try {
+    let toUpdate = await rhino.findById( req.params.id)
+    // Do updates of properties
+    if(req.body.rhino_species) 
+    toUpdate.rhino_species = req.body.rhino_species;
+    if(req.body.endangerment_status) toUpdate.endangerment_status = req.body.endangerment_status;
+    if(req.body.rhino_age) toUpdate.rhino_age = req.body.rhino_age;
+    if(req.body.checkboxsale) toUpdate.sale = true;
+    else toUpdate.same = false
+    let result = await toUpdate.save();
+    console.log("Sucess " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": ${err}: Update for id ${req.params.id} 
+   failed`);
+    }
+   };
+   
 // VIEWS
 // Handle a show all view
 exports.rhinoSchema_view_all_Page = async function(req, res) {

@@ -13,10 +13,21 @@ exports.rhinoSchema_list = async function(req, res) {
 }
 
 // for a specific rhino.
-exports.rhinoSchema_detail = function(req, res) {
+/*exports.rhinoSchema_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: Rhino detail: ' + req.params.id);
-};
+};  */
 
+exports.rhinoSchema_detail = async function(req, res) {
+    console.log("detail" + req.params.id)
+    try {
+    result = await rhino.findById( req.params.id)
+    res.send(result)
+    } catch (error) {
+    res.status(500)
+    res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+   };
+   
 // Handle Rhino create on POST.
 exports.rhinoSchema_create_post  = async function(req, res) {
     console.log(req.body)

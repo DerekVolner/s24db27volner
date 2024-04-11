@@ -1,17 +1,17 @@
 extends layout
 block content
  h1= title
- form(id='RhinoForm', action="/resource/rhinoSchema", method="POST")
- div.form-group
- label.costumeAttr(for='rhino_species') Rhino Species
- input#costume_type(type='text', name='rhino_species')
- div.form-group
- label.costumeAttr(for='endangerment_status') Rhino Endangerment Status
- input#size(type='text', name='endangerment_status')
- div.form-group
- label.costumeAttr(for='rhino_age') Rhino age
- input#cost(type='number', name='rhino_age')
- input(type="submit")
+ form(id='RhinoForm', action="/resource/create", method="POST")
+   div.form-group
+   label.costumeAttr(for='rhino_species') Rhino Species
+   input#rhino_species(type='text', name='rhino_species')
+   div.form-group
+   label.costumeAttr(for='endangerment_status') Rhino Endangerment Status
+   input#endangerment_status(type='text', name='endangerment_status')
+   div.form-group
+   label.costumeAttr(for='rhino_age') Rhino age
+   input#rhino_age(type='number', name='rhino_age')
+   input(type="submit")
  script.
    document.forms['RhinoForm'].addEventListener('submit', (event) => {
      event.preventDefault();
@@ -19,13 +19,13 @@ block content
      fetch(event.target.action, {
        method: 'POST',
        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-       }).then((resp) => {
+     }).then((resp) => {
        return resp.json(); // or resp.text() or whatever the server sends
-       }).then((body) => {
+     }).then((body) => {
        alert("Save succeded")
        // TODO handle body
-       }).catch((error) => {
+     }).catch((error) => {
        // TODO handle error
        alert("Save failed " + error )
-       });
+     });
    });

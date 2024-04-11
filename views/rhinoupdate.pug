@@ -12,13 +12,13 @@ block content
  - let actionid = "/resource/update/" + rhinoid
  form(id='RhinoUpdateForm', action= actionid, method="PUT")
    div.form-group
-     label.costumeAttr(for='rhinoSpecies') Rhino species
+     label.rhinoAttr(for='rhinoSpecies') Rhino species
      input#rhinoSpecies(type='text', name='rhinoSpecies', value= rhinoSpecies )
    div.form-group
-     label.costumeAttr(for='size') Endangerment Status
+     label.rhinoAttr(for='size') Endangerment Status
      input#size(type='text', name='size', value= endangermentStatus )
    div.form-group
-     label.costumeAttr(for='cost') Rhino Age
+     label.rhinoAttr(for='cost') Rhino Age
      input#cost(type='number', name='cost', value= rhinoAge )
    input(type="submit")
  script.

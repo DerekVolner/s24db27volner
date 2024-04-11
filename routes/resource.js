@@ -4,6 +4,8 @@ var router = express.Router();
 var api_controller = require('../controllers/api');
 var rhino_controller = require('../controllers/rhinoSchema');
 var detail_controller = require('../controllers/detail');
+var create_controller =  require('../controllers/create');
+
 /// API ROUTE ///
 // GET resources base.
 router.get('/', api_controller.api);
@@ -18,6 +20,8 @@ router.put('/rhinoSchema/:id', rhino_controller.rhinoSchema_update_put);
 router.get('/rhinoSchema/:id', rhino_controller.rhinoSchema_detail);
 ///* GET detail costume page */
 router.get('/detail', detail_controller.rhinoSchema_view_one_page);
+/* GET create rhino page */
+router.get('/create', create_controller.rhinoSchema_create_Page)
 //commented this out because it was causing issues after trying to fix stuff?
 // GET request for list of all rhino items.
 router.get('/rhinoSchema', rhino_controller.rhinoSchema_list);

@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  - let detest = `dispatch(\"/resource/create\")`
+  button.btn(class="btn-primary ml-1", onclick=detest) Create A Rhino
   h1= title
   - let items = results
   div.container-fluid
@@ -9,6 +11,18 @@ block content
         - let destination = `dispatch(\"/resource/update?id=${item._id}\")`
         div.col-sm-2 #{item.rhino_species} #{item.rhino_age} #{item.endangerment_status}
           button.btn(class="btn-primary ml-1", onclick=destination) Update
+    div(class="row m-1")
+      each item in items
+        - let destination = `dispatch(\"/resource/detail?id=${item._id}\")`
+        div.col-sm-2 
+          button.btn(class="btn-primary ml-1", onclick=destination) Detailed View
+    div(class="row m-1")
+      each item in items
+        - let destination = `dispatch(\"/resource/delete?id=${item._id}\")`
+        div.col-sm-2 
+          button.btn(class="btn-primary ml-1", onclick=destination) Delete
+  
+
 
   script.
     function dispatch(path){

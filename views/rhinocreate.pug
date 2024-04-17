@@ -1,7 +1,7 @@
 extends layout
 block content
  h1= title
- form(id='RhinoForm', action="/resource/create", method="POST")
+ form(id='RhinoForm', action="/resource/rhinoSchema", method="POST")
    div.form-group
      label.rhinoAttr(for='rhino_species') Rhino Species
      input#rhino_species(type='text', name='rhino_species')
